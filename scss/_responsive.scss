@@ -1,0 +1,55 @@
+// Extra large devices (large desktops, 1200px and up)
+@mixin mediaXl {
+  @media (min-width: 1200px) {
+    @content;
+  }
+}
+// Large devices (desktops, 992px and up)
+@mixin mediaLg {
+  @media (min-width: 992px) and (max-width: 1199px) {
+    @content;
+  }
+}
+// Medium devices (tablets, 768px and up)
+@mixin mediaMd {
+  @media (min-width: 768px) and (max-width: 991px) {
+    @content;
+  }
+}
+// Small devices (landscape phones, 576px and up)
+@mixin mediaSm {
+  @media (min-width: 576px) and (max-width: 767px) {
+    @content;
+  }
+}
+// Extra small devices (portrait phones, less than 576px)
+@mixin mediaSx {
+  @media (max-width: 575px) {
+    @content;
+  }
+}
+
+/* =========== RESPONSIVE CSS =========== */
+
+// Extra large devices (large desktops, 1200px and up)
+@include mediaXl {
+}
+
+// Large devices (desktops, 992px and up)
+@include mediaLg {
+  nav ul li {
+    margin: 0 10px;
+  }
+}
+
+// Medium devices (tablets, 768px and up)
+@include mediaMd {
+}
+
+// Small devices (landscape phones, 576px and up)
+@include mediaSm {
+}
+
+// Extra small devices (portrait phones, less than 576px)
+@include mediaSx {
+}
