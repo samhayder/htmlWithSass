@@ -3,7 +3,8 @@ Theme Name: Name of template
 Author: sams.seul@gmail.com
 Support: samhayder.dev@gmail.com
 Description: Creative HTML5 template.
-Version: 1.0 
+Version: 1.0;
+Credit: https://psdhub.com/downloads/education-lms-psd-template/
 */
 
 /* CSS Index
@@ -21,6 +22,7 @@ Version: 1.0
 /* Template theme color */
 $primaryColor: #ffc178;
 $secondaryColor: #5a6e79;
+$bodyColor: #fdf6ee;
 $headingColor: #252c3a;
 $white: #fff;
 /* Fonts */
@@ -41,6 +43,7 @@ body {
   font-weight: normal;
   font-style: normal;
   color: $secondaryColor;
+  background: $bodyColor;
   font-size: 16px;
 }
 
@@ -164,6 +167,38 @@ button:focus {
   -o-border-radius: $size;
 } /* @include border-radius(25); */
 
+/* ----------Responsive CSS---------- */
+/* Extra large devices (large desktops, 1200px and up) */
+@mixin mediaXl {
+  @media (min-width: 1200px) {
+    @content;
+  }
+}
+/* Large devices (desktops, 992px and up) */
+@mixin mediaLg {
+  @media (min-width: 992px) and (max-width: 1199px) {
+    @content;
+  }
+}
+/* Medium devices (tablets, 768px and up) */
+@mixin mediaMd {
+  @media (min-width: 768px) and (max-width: 991px) {
+    @content;
+  }
+}
+/* Small devices (landscape phones, 576px and up) */
+@mixin mediaSm {
+  @media (min-width: 576px) and (max-width: 767px) {
+    @content;
+  }
+}
+/* Extra small devices (portrait phones, less than 576px) */
+@mixin mediaSx {
+  @media (max-width: 575px) {
+    @content;
+  }
+}
+
 /* ----------Theme Buttons CSS---------- */
 /* Template Button Effect */
 %btn {
@@ -178,24 +213,46 @@ button:focus {
 
 .btn_primary {
   @extend%btn;
-  background: linear-gradient(to right, $primaryColor, $secondaryColor);
-  color: $headingColor;
-  padding: 20px 30px;
-  @include border-radius(25px);
+  background: linear-gradient(
+    to right,
+    $primaryColor,
+    rgba($primaryColor, 0.8)
+  );
+  color: $white;
+  font-size: 18px;
+  padding: 15px 30px;
+  line-height: 2.778;
+  font-family: $fontPrimary;
+  border-color: transparent;
+  @include border-radius(50px);
+  @include transitionEaseInOut(2s);
 
   &:hover {
     color: $primaryColor;
+    border-color: $primaryColor;
+    background: transparent;
   }
 }
+
 .btn_secondary {
   @extend%btn;
-  background: $white;
+  background-color: $white;
+  box-shadow: 0 0 10px #ddd;
   color: $primaryColor;
-  padding: 25px;
+  padding: 10px 15px;
   @include border-radius(25px);
+  @include transitionEaseInOut(1s);
+
+  &:hover {
+    background-color: $primaryColor;
+    color: $white;
+  }
 }
 
 /* ----------HEADER NAVBAR CSS---------- */
+.header {
+  height: 130px;
+}
 nav {
   #myNavbar {
     justify-content: flex-end;
@@ -214,6 +271,10 @@ nav {
     li {
       margin: 0 20px;
 
+      @include mediaLg {
+        margin: 0 10px;
+      }
+
       &.active > a {
         color: $primaryColor;
       }
@@ -230,7 +291,90 @@ nav {
     }
   }
 }
+
 /* ----------HOMEPAGE CSS---------- */
+.hero_area {
+  height: 100vh;
+  background: url(../img/bg/hero_bg.png);
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+
+  .hero_text {
+    padding: 200px 0;
+  }
+}
+
+/* ----------DEPARTMENT CSS---------- */
+.department_area {
+  .single_department {
+    position: relative;
+    position: relative;
+    padding: 50px 50px 100px 50px;
+    background: #f9703a;
+
+    h3 {
+      position: absolute;
+      font-size: 30px;
+      color: #fff;
+      bottom: 10%;
+    }
+  }
+  .single_department_2 {
+    background: #7fbb40;
+  }
+}
+/* ----------ABOUT CSS---------- */
+.about_area {
+  .about_video {
+    text-align: center;
+    position: relative;
+    z-index: 1;
+
+    &::before {
+      position: absolute;
+      content: '';
+      height: 400px;
+      width: 400px;
+      background: $white;
+      z-index: -1;
+      left: 70px;
+      top: -12px;
+      border-radius: 50%;
+    }
+
+    &::after {
+      position: absolute;
+      content: '';
+      background: url(../img/about/about_shape.png);
+      width: 315px;
+      height: 355px;
+      left: -75px;
+      top: 0;
+      z-index: -1;
+    }
+
+    img {
+      max-width: 70%;
+    }
+
+    a {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      font-size: 35px;
+      color: $white;
+      background: $primaryColor;
+      padding: 15px;
+      line-height: 0;
+      border-radius: 50%;
+      transform: translate(-50%, -50%);
+    }
+  }
+}
+/* ---------- CSS---------- */
+
+/* ---------- CSS---------- */
 
 /* ---------- CSS---------- */
 
